@@ -1,4 +1,4 @@
-@section('title', 'Manage SOP')
+@section('title', 'Dashboard')
 @extends('admin/admin-theme')
 
 @section('content')

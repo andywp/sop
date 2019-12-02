@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class SopControlle extends Controller
@@ -23,7 +23,7 @@ class SopControlle extends Controller
      */
     public function index()
     {
-        return view('admin/dashboard');
+        return view('admin/sopindex');
     }
 
     public function sop(){
