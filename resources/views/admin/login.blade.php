@@ -20,15 +20,10 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
 <body class="hold-transition login-page">
-<?php
-//echo'<pre>';
- //print_r($config);
-//echo '</pre>';
 
-  ?>
 <div class="login-box">
     <div class="login-logo">
-      <a href="{{ URL::asset("") }}"><b>SOP </b>QWORDS</a>
+      <a href="{{ URL::asset('') }}"><b>SOP </b>QWORDS</a>
     </div>
     <!-- /.login-logo -->
     <div class="card">
@@ -37,12 +32,12 @@
 
         <div class="social-auth-links text-center mb-3">
           <button id="login-sso" class="btn btn-block btn-danger">
-            Login with SSO
+          <i class="fas fa-sign-in-alt"></i> Login with SSO
           </button>
           <form action="https://sso.qwords.com/sso/api/v1/login?service=google" id="sso-login" method="post" name="sso-login">
-                <input name="QW-PUBLIC" type="hidden" value="ksrbz6vOXp3p4Qwup@*z#QXNs)TNFor&pJTD&%5&6zRVwp)FgQbL!%R6@74h"> 
-                <input name="QW-SECRET" type="hidden" value="{{ $config['client_secret'] }}">
-			</form>
+                <input name="QW-PUBLIC" type="hidden" value="oF+gIiG3LHFjdW*9Q#UWgBOzVacqq0Sjc(sRhNldkdSJf@2XUT~Z9HUR#p3Z"> 
+                <input name="QW-SECRET" type="hidden" value="cu1OwZy#&Jp9Vhv8qnVH)gWWYV($F6LIl$c5qt!ORCVnez^PWTl!@jDX@d(Z">
+		    	</form>
         </div>
       </div>
       <!-- /.login-card-body -->
@@ -51,9 +46,9 @@
   <!-- /.login-box -->
 
 
-    <script src="{{ URL::asset("assets/admin-lte/plugins/jquery/jquery.min.js") }}"></script>
-    <script src="{{ URL::asset("assets/plugins/bootstrap/js/bootstrap.bundle.min.js") }}"></script>
-    <script src="{{ URL::asset("assets/dist/js/adminlte.min.js") }}"></script>
+    <script src="{{ URL::asset('assets/admin-lte/plugins/jquery/jquery.min.js') }}"></script>
+    <script src="{{ URL::asset('assets/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ URL::asset('assets/dist/js/adminlte.min.js') }}"></script>
     <script>
 	      $(function(){
 	          $('#login-sso').click(function(){

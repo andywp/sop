@@ -26,8 +26,14 @@ class HomeController extends Controller
         return view('admin/dashboard');
     }
 
-    public function sop(){
-        echo 'aaaaaaaaaaaaaaaaa';
+    public function Login(Request $request){
+        $config = [
+            'client_id' => env('sso_key_public'),
+            'client_secret' => env('sso_key_secret'),
+            'redirect' => env('sso_url'),
+        ];
+        return view('admin/login',['config' => $config ]);
+       
     }
 
 

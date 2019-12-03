@@ -17,6 +17,11 @@
                  <a href="#" class="d-block">Qwords</a>
              </div>
          </div>
+         
+        <?php
+            $url=Request::segment(2);
+            $urlDua=Request::segment(3);
+        ?>
 
          <!-- Sidebar Menu -->
          <nav class="mt-2">
@@ -24,23 +29,33 @@
                  <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                <li class="nav-item">
-                    <a href="{{ URL::asset('admin/') }}" class="nav-link">
+                    <a href="{{ url('admin/') }}" class="nav-link <?= ($url =='' )?'active':''; ?> ">
                         <i class="fas fa-home nav-icon"></i>
                         <p>Home</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ URL::asset('admin/sop') }}" class="nav-link">
+                    <a href="{{ url('admin/sop') }}" class="nav-link <?= ($url =='sop' && $urlDua =='' )?'active':''; ?>">
                         <i class="nav-icon fas fa-book"></i>
                         <p>Manage SOP</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ url('admin/sop/read/') }}" class="nav-link <?= ($url =='sop' && $urlDua =='read' )?'active':''; ?>">
+                        <i class="fas fa-retweet"></i>
+                        <p> SOP</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ url('logout') }}" class="nav-link">
+                         <i class="fas fa-sign-out-alt"></i>
+                        <p> Log Out</p>
                     </a>
                 </li>
 
 
 
-                
                
-                
                 
                 
                 
