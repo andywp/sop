@@ -37,6 +37,7 @@
           <form action="https://sso.qwords.com/sso/api/v1/login?service=google" id="sso-login" method="post" name="sso-login">
                 <input name="QW-PUBLIC" type="hidden" value="oF+gIiG3LHFjdW*9Q#UWgBOzVacqq0Sjc(sRhNldkdSJf@2XUT~Z9HUR#p3Z"> 
                 <input name="QW-SECRET" type="hidden" value="cu1OwZy#&Jp9Vhv8qnVH)gWWYV($F6LIl$c5qt!ORCVnez^PWTl!@jDX@d(Z">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
 		    	</form>
         </div>
       </div>

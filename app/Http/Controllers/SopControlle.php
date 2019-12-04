@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Validator;
@@ -35,8 +35,16 @@ class SopControlle extends Controller
     }
 
     public function SOPread(){
-        $sops = DB::table('qw_sop')->get();
-        return view('admin/read', ['sop' => $sops ]);
+        $user = Auth::user();
+        if($user->division=='Developer'){
+            $devision='Developer';
+        }else{
+            $devision='Technical';
+        }
+
+
+        $sops = DB::table('qw_sop')->where('devision',$devision)->get();
+        return view('admin/read', ['sop' => $sops]);
     }
 
     public function SOPdetail($sop_id,$perfix){

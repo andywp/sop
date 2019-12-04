@@ -13,7 +13,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-      //  $this->middleware('auth');
+        $this->middleware('auth');
     }
 
     /**
@@ -23,19 +23,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('admin/dashboard');
+        return view('home');
     }
-
-    public function Login(Request $request){
-        $config = [
-            'client_id' => env('sso_key_public'),
-            'client_secret' => env('sso_key_secret'),
-            'redirect' => env('sso_url'),
-        ];
-        return view('admin/login',['config' => $config ]);
-       
-    }
-
-
-
 }
