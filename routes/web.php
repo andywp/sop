@@ -10,16 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-/*
-Route::post('/', function () {
-    $config = [
-        'client_id' => env('sso_key_public'),
-        'client_secret' => env('sso_key_secret'),
-        'redirect' => env('sso_url'),
-    ];
-    return view('admin/login',['config' => $config ]);
-});
-*/
 Route::get('/', 'HomeController@Login')->name('home');
 Route::post('/auth', 'HomeController@Auth');
 Route::get('/logout', 'HomeController@Logout');
@@ -36,19 +26,10 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/sop/edit/{sop_id}', 'SopControlle@sopEdit');
         Route::post('/sop/ajax-edit', 'SopControlle@ajaxEdit');
         Route::post('/sop/ajax-delete', 'SopControlle@ajaxDelete');
-
     });
+
+    Route::post('ajax/upload-img', 'UploadControlle@images');
+    Route::post('ajax/upload-file', 'UploadControlle@UploadFile');
 /* perfix url */
-    /* perfix url */
 });
-
-
 Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
-
-//Auth::routes();
-
-//Route::get('/home', 'HomeController@index')->name('home');
-
-//Auth::routes();
-
-//Route::get('/home', 'HomeController@index')->name('home');

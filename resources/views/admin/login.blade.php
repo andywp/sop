@@ -31,6 +31,11 @@
         <p class="login-box-msg">Sign in to start your session</p>
 
         <div class="social-auth-links text-center mb-3">
+        @if (session('status'))
+            <div class="alert alert-success">
+                {{ session('status') }}
+            </div>
+        @endif
           <button id="login-sso" class="btn btn-block btn-danger">
           <i class="fas fa-sign-in-alt"></i> Login with SSO
           </button>

@@ -22,10 +22,11 @@
 
     <!-- summernote -->
     <link rel="stylesheet" href="{{ URL::asset('assets/admin-lte/plugins/summernote/summernote-bs4.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <!-- Bootstrap Switch -->
-    <script src="{{ URL::asset('assets/admin-lte/plugins/bootstrap-switch/js/bootstrap-switch.min.js') }}"></script>
+    <!-- <script src="{{ URL::asset('assets/admin-lte/plugins/bootstrap-switch/js/bootstrap-switch.min.js') }}"></script> -->
     
 
      <!-- jQuery -->

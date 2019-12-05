@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-use Validator;
-
+//use Validator;
+//use Illuminate\Support\Facades\Storage;
+use Carbon\Carbon;
 class SopControlle extends Controller
 {
     /**
@@ -61,9 +62,17 @@ class SopControlle extends Controller
 
 
     public function ajaxSave(Request $request)
-    {
+    {   
+
+
+       // echo '<pre>';
+      //  print_r($request->all());
+     //   echo '</pre>';
         $error = true;
         $alert = '';
+
+
+        
 
         $pesan='';
         if($request->title ==''){
@@ -79,11 +88,38 @@ class SopControlle extends Controller
             $alert='<ul>'.$pesan.'</ul';
         }else{
 
+            $name='';
+            //upload gambar
+            if($request->postImages !=''){
+                $tmp=$request->postImages;
+                $to=$tmp['path'];
+                $file = public_path('assets/tmp/').$tmp['name'];
+                $ext = pathinfo($file, PATHINFO_EXTENSION);
+                $name=Carbon::now()->format('dmYhis').'.'.$ext;
+                $from=public_path('assets/tmp/');
+                copy($file,$to.$name);
+                unlink($from.$tmp['name']);
+            }
+            $FileName='';
+            if($request->postFiles !=''){
+                $tmpFile=$request->postFiles ;
+                $ke=$tmpFile['path'];
+                $file = public_path('assets/tmp/').$tmpFile['name'];
+                $ext = pathinfo($file, PATHINFO_EXTENSION);
+                $FileName=Carbon::now()->format('dmYhis').'.'.$ext;
+                $unlinkpath=public_path('assets/tmp/');
+                copy($file,$ke.$FileName);
+                unlink($unlinkpath.$tmpFile['name']);            
+            }
+            
+            //exit();
            $simpan=DB::table('qw_sop')->insert(
                 [
                     'title' => $request->title,
                     'sop' => htmlentities($request->sop),
                     'devision' => $request->devision,
+                    'gambar'   => $name,
+                    'file'      => $FileName,
                     'publish'=>1 
                 ]
             );

@@ -38,6 +38,7 @@ class HomeController extends Controller
         echo '<pre>';
         print_r($request->all());
         echo '</pre>';
+        //exit();
         if($request->id !=''){
             $user = DB::table('users')->where('sso_id',$request->id)->first();
             if(!$user){
@@ -56,6 +57,7 @@ class HomeController extends Controller
                         
                     ]
                 );
+                echo 'save';
             }else{
 
                 DB::table('users')
@@ -68,28 +70,29 @@ class HomeController extends Controller
 
                     ]
                 );
+                echo 'update';
             }
 
+
+           
             if (Auth::attempt(['email' => $request->email, 'password' => $request->id, 'status' => 1])) {
-                // The user is active, not suspended, and exists.
-                return redirect()->intended('admin');
+                return redirect('admin');
             }else{
-                return redirect()->intended('login');
+                 return redirect('login')->with('status', 'Login Gagal');
             }
-
-
-
-
-
 
         }else{
 
-            return redirect()->intended('login');
+            return redirect('login')->with('status', 'Login Gagal');
         }
+    }
 
 
 
-
+    public function Logout(Request $request){
+        Auth::logout();
+        $request->session()->flush();
+        return redirect('/');
     }
 
 
