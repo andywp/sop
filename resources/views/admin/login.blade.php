@@ -18,25 +18,44 @@
     <link rel="stylesheet" href="{{ URL::asset("assets/admin-lte/dist/css/adminlte.min.css") }}">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <style>
+        .images img {
+          width: 200px;
+          object-fit: cover;
+      }
+      .login-page, .register-page {
+        background: #2a3642;
+      }
+      .login-logo a, .register-logo a{
+        color: #fff;
+      }
+      .login-page, .register-page {
+        height: 80vh;
+      }
+
+    </style>
+
 </head>
 <body class="hold-transition login-page">
 
 <div class="login-box">
-    <div class="login-logo">
+    <div class="login-logo text-with">
       <a href="{{ URL::asset('') }}"><b>SOP </b>QWORDS</a>
     </div>
     <!-- /.login-logo -->
     <div class="card">
       <div class="card-body login-card-body">
         <p class="login-box-msg">Sign in to start your session</p>
-
+        <div class="images text-center">
+        <img src="{{ URL::asset('assets/img/qwords_black.png') }}" class="" alt="Qwords Login">
+        </div>
         <div class="social-auth-links text-center mb-3">
-        @if (session('status'))
+        @if (session('message'))
             <div class="alert alert-success">
-                {{ session('status') }}
+                {{ session('message') }}
             </div>
         @endif
-          <button id="login-sso" class="btn btn-block btn-danger">
+          <button title="klik to login" id="login-sso" class="btn btn-block btn-danger">
           <i class="fas fa-sign-in-alt"></i> Login with SSO
           </button>
           <form action="https://sso.qwords.com/sso/api/v1/login?service=google" id="sso-login" method="post" name="sso-login">

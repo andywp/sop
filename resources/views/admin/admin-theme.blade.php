@@ -27,8 +27,9 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <!-- Bootstrap Switch -->
     <!-- <script src="{{ URL::asset('assets/admin-lte/plugins/bootstrap-switch/js/bootstrap-switch.min.js') }}"></script> -->
-    
-
+    <script type="text/javascript">
+        var systemURL="{{ URL::asset('assets/plugin/') }}/";
+    </script>
      <!-- jQuery -->
      <script src="{{ URL::asset('/assets/admin-lte/plugins/jQuery/jquery.min.js') }}"></script>
 </head>

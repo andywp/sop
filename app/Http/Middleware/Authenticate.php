@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Http\Middleware;
-
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
+
 
 class Authenticate extends Middleware
 {
@@ -15,6 +15,7 @@ class Authenticate extends Middleware
     protected function redirectTo($request)
     {
         if (! $request->expectsJson()) {
+            //Session::flash('message', "Special message goes here");
             return route('home');
         }
     }

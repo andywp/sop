@@ -26,6 +26,8 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/sop/edit/{sop_id}', 'SopControlle@sopEdit');
         Route::post('/sop/ajax-edit', 'SopControlle@ajaxEdit');
         Route::post('/sop/ajax-delete', 'SopControlle@ajaxDelete');
+        Route::get('/sop/download/img/{sop_id}', 'SopControlle@sopDownload');
+        Route::get('/sop/download/file/{sop_id}', 'SopControlle@sopDownloadFile');
     });
 
     Route::post('ajax/upload-img', 'UploadControlle@images');

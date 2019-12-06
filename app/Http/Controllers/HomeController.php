@@ -35,9 +35,9 @@ class HomeController extends Controller
     }
 
     public function Auth(Request $request){
-        echo '<pre>';
-        print_r($request->all());
-        echo '</pre>';
+        //echo '<pre>';
+      //  print_r($request->all());
+      //  echo '</pre>';
         //exit();
         if($request->id !=''){
             $user = DB::table('users')->where('sso_id',$request->id)->first();
@@ -57,7 +57,7 @@ class HomeController extends Controller
                         
                     ]
                 );
-                echo 'save';
+                //echo 'save';
             }else{
 
                 DB::table('users')
@@ -70,7 +70,7 @@ class HomeController extends Controller
 
                     ]
                 );
-                echo 'update';
+               // echo 'update';
             }
 
 

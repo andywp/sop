@@ -15,7 +15,7 @@
     <script type="text/javascript"  >
     $(function () {
         // Summernote
-        $('.editor').summernote();
+       // $('.editor').summernote();
 
         $('.select2').select2();
     })
